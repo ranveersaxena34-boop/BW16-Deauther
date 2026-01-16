@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: arduino/setup-arduino-cli@v1
       - run: |
           arduino-cli config init
@@ -12,7 +12,7 @@ jobs:
           arduino-cli core update-index
           arduino-cli core install ameba:amebad
           arduino-cli compile --fqbn ameba:amebad:ameba_bw16 sketch.ino --output-dir ./out
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: BW16-Bin-Files
           path: ./out/
